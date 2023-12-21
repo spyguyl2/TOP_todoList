@@ -1,8 +1,3 @@
 import './style.css';
+import createProject from './projectFunctions';
 
-const createTodo = (title, description = '', dueDate, priority = 'med') => {
-    const createSubTask = (subTask) => {
-
-    }
-    
-}
