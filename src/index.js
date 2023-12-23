@@ -1,3 +1,4 @@
 import './style.css';
-import createProject from './projectFunctions';
+import {createProject, createTodo} from './projectFunctions';
 
+let testProject = createProject("Default", "this is the default project");

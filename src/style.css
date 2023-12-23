@@ -1,37 +1,46 @@
 body {
     margin: 0;
+    min-height: 100vh;
+    width: 100% ;
 }
 
 .content {
+    min-height: 100vh;
     height: 100%;
     width: 100%;
     display: grid;
-    grid-template: .5fr 5fr / 3fr 1fr;
+    grid-template: .4fr .1fr 5fr / 3fr 1fr;
     grid-template-areas: 
-    'projectPanel toolBar'
+    'projectPanel projectPanel'
+    'toolBar toolBar'
     'todoPanel todoPanel';
 }
 
 .toolBar {
     display: flex;
+    justify-content: flex-end;    
     grid-area: toolBar;
     border: 1px solid purple;
+    background-color: rgb(71, 57, 71);
 }
 
 .projectPanel {
     grid-area: projectPanel;
     border: 1px solid red;
+    background-color: blue;
     width: 100%;
     height: 100%;
 }
 
-.projectPanel {
+.project {
     background-color: yellow;
     max-width: 150px;
+    height: 100%;
 }
 
 .todoPanel {
     grid-area: todoPanel;
+    background-color: rgb(57, 57, 57);
     border: 1px solid blue;
     height: 100%;
     width: 100%;
