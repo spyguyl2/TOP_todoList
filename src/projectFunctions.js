@@ -1,14 +1,21 @@
 const createProject = (title, description = '') => {
-
-    const listOfTodos = [];
-    const getTodos = () => listOfTodos;
-    const addTodo = (todo) => listOfTodos.push(todo);
+    const todos = [];
+    const getTodos = () => todos;
+    const addTodo = (todo) => todos.push(todo);
+    const getTotalTodos = () => todos.length;
+    const getCompleteTodos = () => {
+        let x = 0;
+        todos.forEach((el) => {
+            if (el.getIsComplete()) x++;
+        });
+        return x;
+    }
     const transferTodo = (targetTodo, targetProject) => {
-        const index = listOfTodos.indexOf(targetTodo);
+        const index = todos.indexOf(targetTodo);
         if (index > -1) {
-            listOfTodos.splice(index, 1);
+            todos.splice(index, 1);
         }
-        return index;
+        targetProject.addTodo(targetTodo);
     }
     
     const getTitle = () => title;
@@ -19,20 +26,11 @@ const createProject = (title, description = '') => {
 
 
     
-    return {getTitle, getDescription, setTitle, setDescription, getTodos, addTodo};
+    return {getTitle, getDescription, setTitle, setDescription, 
+            getTodos, addTodo, getTotalTodos, getCompleteTodos, transferTodo};
 }
 
 const createTodo = (title, description = '', dueDate, priority = 'med', isComplete = false) => {
-    
-    const createSubTask = (title, isComplete = false) => {
-        const getTitle = () => title;
-        const getIsComplete = () => isComplete;
-
-        const setTitle = (newtitle) => title = newtitle;
-        const toggleIsComplete = () => isComplete = !isComplete;
-
-        return { getTitle, getIsComplete, setTitle, toggleIsComplete };
-    }
 
     const getTitle = () => title;
     const getDescription = () => description;
@@ -46,8 +44,18 @@ const createTodo = (title, description = '', dueDate, priority = 'med', isComple
     const setPriority = (newPriority) => priority = newPriority;
     const toggleIsComplete = () => isComplete = !isComplete;
     
-    return {createSubTask, getTitle, getDescription, getDueDate, getPriority, getIsComplete,  
+    return {getTitle, getDescription, getDueDate, getPriority, getIsComplete,  
             setTitle, setDescription, setDueDate, setPriority, toggleIsComplete};
 }
 
-export {createProject, createTodo};
+const createSubTask = (title, isComplete = false) => {
+    const getTitle = () => title;
+    const getIsComplete = () => isComplete;
+
+    const setTitle = (newtitle) => title = newtitle;
+    const toggleIsComplete = () => isComplete = !isComplete;
+
+    return { getTitle, getIsComplete, setTitle, toggleIsComplete };
+}
+
+export {createProject, createTodo, createSubTask};
