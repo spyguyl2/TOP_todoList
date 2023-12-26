@@ -1,15 +1,13 @@
-body {
-    margin: 0;
-    min-height: 100vh;
-    width: 100% ;
+:root {
+	--projectPanel: 3rem;
+	--toolBar: 40px;
+	--main: calc(100vh - calc(var(--projectPanel) + var(--toolBar)));
 }
 
 .content {
-    min-height: 100vh;
-    height: 100%;
-    width: 100%;
+    height: 100vh;
     display: grid;
-    grid-template: .4fr .1fr 5fr / 3fr 1fr;
+    grid-template: var(--projectPanel) var(--toolBar) var(--main) / 3fr 1fr;
     grid-template-areas: 
     'projectPanel projectPanel'
     'toolBar toolBar'
@@ -18,30 +16,41 @@ body {
 
 .toolBar {
     display: flex;
-    justify-content: flex-end;    
+    justify-content: flex-end;
+    height: var(--toolBar);
     grid-area: toolBar;
-    border: 1px solid purple;
-    background-color: rgb(71, 57, 71);
+    background-color: black;
 }
 
 .projectPanel {
+    display: flex;
+    justify-content: flex-start;
     grid-area: projectPanel;
-    border: 1px solid red;
-    background-color: blue;
-    width: 100%;
-    height: 100%;
+    background-color: rgb(230, 230, 230);
+    height: var(--projectPanel);
 }
 
 .project {
-    background-color: yellow;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    border-top-right-radius: 35%;
+    border-top-left-radius: 35%;
+    background-color: rgb(54, 4, 54);
+    border: 2px solid saddlebrown;
     max-width: 150px;
+    min-width: 50px;
     height: 100%;
+    margin-left: 5px;
+    padding: 0 5px;
+    color: white;
 }
 
 .todoPanel {
     grid-area: todoPanel;
+    height: var(--main);
     background-color: rgb(57, 57, 57);
     border: 1px solid blue;
     height: 100%;
-    width: 100%;
 }
