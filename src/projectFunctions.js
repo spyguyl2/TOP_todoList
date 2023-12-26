@@ -1,4 +1,4 @@
-const createProject = (title, description = '') => {
+export const createProject = (title, description = '') => {
     const todos = [];
     const getTodos = () => todos;
     const addTodo = (todo) => todos.push(todo);
@@ -10,6 +10,7 @@ const createProject = (title, description = '') => {
         });
         return x;
     }
+
     const transferTodo = (targetTodo, targetProject) => {
         const index = todos.indexOf(targetTodo);
         if (index > -1) {
@@ -30,7 +31,7 @@ const createProject = (title, description = '') => {
             getTodos, addTodo, getTotalTodos, getCompleteTodos, transferTodo};
 }
 
-const createTodo = (title, description = '', dueDate, priority = 'med', isComplete = false) => {
+export const createTodo = (title, description = '', dueDate, priority = 'med', isComplete = false) => {
 
     const getTitle = () => title;
     const getDescription = () => description;
@@ -48,7 +49,7 @@ const createTodo = (title, description = '', dueDate, priority = 'med', isComple
             setTitle, setDescription, setDueDate, setPriority, toggleIsComplete};
 }
 
-const createSubTask = (title, isComplete = false) => {
+export const createSubTask = (title, isComplete = false) => {
     const getTitle = () => title;
     const getIsComplete = () => isComplete;
 
@@ -58,4 +59,3 @@ const createSubTask = (title, isComplete = false) => {
     return { getTitle, getIsComplete, setTitle, toggleIsComplete };
 }
 
-export {createProject, createTodo, createSubTask};
