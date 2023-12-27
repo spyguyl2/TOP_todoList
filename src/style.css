@@ -4,6 +4,47 @@
 	--main: calc(100vh - calc(var(--projectPanel) + var(--toolBar)));
 }
 
+.tooltip {
+    position: relative;
+    display: inline-block;
+}
+
+.tooltip span.tooltiptext {
+    --tooltipwidth: 120px;
+    --tooltipbackgroundcolor: lightcyan;
+
+    visibility: hidden;
+    width: var(--tooltipwidth);
+    background-color: var(--tooltipbackgroundcolor);
+    color: purple;
+    text-align: center;
+    border-radius: 6px;
+    padding: 5px 0;
+    position: absolute;
+    z-index: 1;
+    top: -5px;
+    left: 50px;
+    margin-left: calc(--tooltipwidth / 2);
+    opacity: 0;
+    transition: opacity 1s;
+}
+
+.tooltip:hover span.tooltiptext {
+    visibility: visible;
+    opacity: 1;
+}
+
+.tooltip span.tooltiptext::after {
+    content: " ";
+    position: absolute;
+    top: 50%;
+    right: 100%; /* To the left of the tooltip */
+    margin-top: -5px;
+    border-width: 5px;
+    border-style: solid;
+    border-color: transparent var(--tooltipbackgroundcolor) transparent transparent;
+  }
+
 .content {
     height: 100vh;
     display: grid;
@@ -51,6 +92,5 @@
     grid-area: todoPanel;
     height: var(--main);
     background-color: rgb(57, 57, 57);
-    border: 1px solid blue;
     height: 100%;
 }
