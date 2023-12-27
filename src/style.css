@@ -1,5 +1,5 @@
 :root {
-	--projectPanel: 3rem;
+	--projectPanel: 2.5rem;
 	--toolBar: 40px;
 	--main: calc(100vh - calc(var(--projectPanel) + var(--toolBar)));
 }
@@ -22,19 +22,19 @@
     border-radius: 6px;
     padding: 5px 0;
     position: absolute;
-    z-index: 1;
+    z-index: 2;
     left: 100%;
     margin-left: 15px;
     opacity: 0;
     transition: opacity 1s;
 }
 
-.tooltip:hover span.tooltiptext {
+.tooltip:hover .tooltiptext {
     visibility: visible;
     opacity: 1;
 }
 
-.tooltip span.tooltiptext::after {
+.tooltip .tooltiptext::after {
     content: " ";
     position: absolute;
     top: 50%;
@@ -57,17 +57,22 @@
 
 .toolBar {
     display: flex;
-    justify-content: flex-end;
+    justify-content: center;
     height: var(--toolBar);
     grid-area: toolBar;
     background-color: black;
+    z-index: 1;
+}
+
+.toolBar button {
+    margin-left: 10px;
 }
 
 .projectPanel {
     display: flex;
     justify-content: flex-start;
     grid-area: projectPanel;
-    background-color: rgb(230, 230, 230);
+    background-color: rgb(33, 9, 48);
     height: var(--projectPanel);
 }
 
@@ -86,11 +91,14 @@
     margin-left: 5px;
     padding: 0 5px;
     color: white;
+    cursor: pointer;
 }
 
 .todoPanel {
     grid-area: todoPanel;
     height: var(--main);
     background-color: rgb(57, 57, 57);
-    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
 }
