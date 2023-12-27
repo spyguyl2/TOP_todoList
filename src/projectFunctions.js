@@ -28,10 +28,23 @@ export const createProject = (title, description = '') => {
 
     
     return {getTitle, getDescription, setTitle, setDescription, 
-            getTodos, addTodo, getTotalTodos, getCompleteTodos, transferTodo};
+            getTodos, addTodo, getTotalTodos, getCompleteTodos, transferTodo,
+        };
 }
 
 export const createTodo = (title, description = '', dueDate, priority = 'med', isComplete = false) => {
+
+    const subTasks = [];
+    const getSubTasks = () => subTasks;
+    const addSubTask = (subtask) => subTasks.push(subtask);
+    const getTotalSubTasks = () => subTasks.length;
+    const getCompleteSubTasks = () => {
+        let x = 0;
+        subTasks.forEach((el) => {
+            if (el.getIsComplete()) x++;
+        });
+        return x;
+    }
 
     const getTitle = () => title;
     const getDescription = () => description;
@@ -46,7 +59,9 @@ export const createTodo = (title, description = '', dueDate, priority = 'med', i
     const toggleIsComplete = () => isComplete = !isComplete;
     
     return {getTitle, getDescription, getDueDate, getPriority, getIsComplete,  
-            setTitle, setDescription, setDueDate, setPriority, toggleIsComplete};
+            setTitle, setDescription, setDueDate, setPriority, toggleIsComplete,
+            getSubTasks, addSubTask, getTotalSubTasks, getCompleteSubTasks,
+        };
 }
 
 export const createSubTask = (title, isComplete = false) => {
