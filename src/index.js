@@ -10,3 +10,13 @@ createIcons({
         FolderPlus
     }
 });
+
+const btnAddProject = document.getElementById('btnAddProject');
+btnAddProject.addEventListener('click', () => {
+    btnAddProject.classList.remove('tooltip');
+    btnAddProject.removeChild(btnAddProject.querySelector('span'));
+}, {once: true});
+
+btnAddProject.addEventListener('click', () => {
+
+});
