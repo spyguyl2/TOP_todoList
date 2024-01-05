@@ -76,6 +76,10 @@
     height: var(--projectPanel);
 }
 
+.project, .project p {
+    color: white;
+}
+
 .project {
     display: flex;
     flex-direction: column;
@@ -90,7 +94,6 @@
     height: 100%;
     margin-left: 5px;
     padding: 0 5px;
-    color: white;
     cursor: pointer;
 }
 
@@ -101,4 +104,86 @@
     display: flex;
     justify-content: center;
     align-items: flex-start;
+}
+
+.todo {
+    display: flex;
+    flex-direction: column;
+    margin-top: clamp(5px, 2rem, 3rem);
+    width: 30%;
+    align-items: center;
+    background-color: dimgray;
+    cursor: pointer;
+    transition: 0.4s;
+}
+
+.todomain {
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    width: 100%;
+}
+
+.tododropdown {
+    padding: 0 18px;
+    background-color: inherit;
+    display: none;
+}
+
+.tododropdown.show {
+    display: block;
+}
+
+.checkbox {
+    background-color: gray;
+    border: 1px solid slateblue;
+    cursor: pointer;
+}
+
+p {
+    color: orange;
+}
+
+.invisible {
+    visibility: hidden;
+}
+
+.low {
+    background-color: aquamarine;
+}
+
+.med {
+    background-color: blueviolet;
+}
+
+.high {
+    background-color: darkblue;
+}
+
+#newtodoform {
+    display: flex;
+    flex-direction: column;
+}
+
+#newtodomodal {
+    display: none;
+}
+
+.modal-outer {
+    justify-content: center;
+    align-items: center;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    z-index: 1;
+}
+
+.modal-inner {
+    background-color: rgb(76, 71, 71);
+    padding: 10px;
+    width: 12rem;
+    height: 10rem;
+    margin-bottom: 20rem;
 }
