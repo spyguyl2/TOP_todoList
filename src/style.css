@@ -2,6 +2,18 @@
 	--projectPanel: 2.5rem;
 	--toolBar: 40px;
 	--main: calc(100vh - calc(var(--projectPanel) + var(--toolBar)));
+    /*High Priority*/
+    --priorityHighBgColor: rgb(249, 103, 12);
+    --priorityHighTextColor: rgb(1,1,1);
+    --priorityHighCheckboxColor: rgb(201, 192, 192);
+    /*Medium Priority*/
+    --priorityMedBgColor: rgb(93, 19, 122);
+    --priorityMedTextColor: rgb(1,1,1);
+    --priorityMedCheckboxColor: rgb(1,1,1);
+    /*Low Priority*/
+    --priorityLowBgColor: rgb(93, 86, 31);
+    --priorityLowTextColor: rgb(1,1,1);
+    --priorityLowCheckboxColor: rgb(1,1,1);
 }
 
 .tooltip {
@@ -11,12 +23,11 @@
 }
 
 .tooltip span.tooltiptext {
-    --tooltipwidth: 120px;
-    --tooltipbackgroundcolor: lightcyan;
+    --tooltipBackgroundcolor: lightcyan;
 
     visibility: hidden;
     width: 120px;
-    background-color: var(--tooltipbackgroundcolor);
+    background-color: var(--tooltipBackgroundcolor);
     color: purple;
     text-align: center;
     border-radius: 6px;
@@ -109,12 +120,14 @@
 .todo {
     display: flex;
     flex-direction: column;
+    border-radius: 10px;
     margin-top: clamp(5px, 2rem, 3rem);
     width: 30%;
     align-items: center;
     background-color: dimgray;
     cursor: pointer;
     transition: 0.4s;
+    padding: 2px;
 }
 
 .todomain {
@@ -149,15 +162,27 @@ p {
 }
 
 .low {
-    background-color: aquamarine;
+    background-color: var(--priorityLowBgColor);
+}
+
+.low .checkbox {
+    background-color: var(--priorityLowCheckboxColor);
 }
 
 .med {
-    background-color: blueviolet;
+    background-color: var(--priorityMedBgColor);
+}
+
+.med .checkbox {
+    background-color: var(--priorityMedCheckboxColor);
 }
 
 .high {
-    background-color: darkblue;
+    background-color: var(--priorityHighBgColor);
+}
+
+.high .checkbox {
+    background-color: var(--priorityHighCheckboxColor);
 }
 
 #newtodoform {
@@ -186,4 +211,8 @@ p {
     width: 12rem;
     height: 10rem;
     margin-bottom: 20rem;
+}
+
+.newtodomodalbuttonwrapper {
+    display: flex;
 }
