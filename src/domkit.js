@@ -15,6 +15,16 @@ export const removeProject = (Project) => {
 }
 
 export const addTodo = (Todo) => {
+    const container = document.createElement('div');
+    container.classList.add('todo', String(Todo.getPriority()));
+    
+
+    const todoMain = document.createElement('div');
+    todoMain.classList.add('todomain');
+
+    
+    const todoDropdown = document.createElement('div');
+    todoDropdown.classList.add('tododropdown');
 
 }
 
