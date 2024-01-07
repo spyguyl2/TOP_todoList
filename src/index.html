@@ -24,7 +24,7 @@
         <div class="todoPanel">
             <div class="todo high">
                 <div class="todomain">
-                    <div class="checkbox"><i data-lucide="check" class="invisible"></i></div>
+                    <div class="checkbox"><div data-lucide="check" class="invisible"></div></div>
                     <p class="title">Todo1</p>
                     <p class="dueDate">12/31</p>
                 </div>
@@ -34,13 +34,23 @@
             </div>
             <div class="modal-outer" id="newtodomodal">
                 <div class="modal-inner">
-                    <form id="newtodoform" action="">
+                    <form id="newtodoform">
                         <h1>New Todo</h1>
                         <hr>
                         <label for="title">Title</label>
                         <input type="text" name="title">
                         <label for="description">Description</label>
                         <input type="text" name="description">
+                        <label for="Priority">Priority</label>
+                        <div class="prioritybuttons">
+                            <button type="button" id="prioritylow">Low</button>
+                            <button type="button" id="prioritymed">Med</button>
+                            <button type="button" id="priorityhigh">High</button>
+                        </div>
+                        <div class="newtodomodalbuttonwrapper">
+                            <button type="button" id="newModalCancel">Cancel</button>
+                            <button type="button" id="newModalCreate">Create</button>
+                        </div>
                     </form>
                 </div>
             </div>
