@@ -12,6 +12,11 @@ createIcons({
     }
 });
 
+const closeModal = (modalId) => {
+    const modal = document.getElementById(modalId);
+    modal.style.display = 'none';
+}
+
 const btnAddProject = document.getElementById('btnAddProject');
 btnAddProject.addEventListener('click', () => {
     btnAddProject.classList.remove('tooltip');
@@ -38,5 +43,26 @@ btnAddTodo.addEventListener('click', () => {
 
 newTodoModal.addEventListener('click', (e) => {
     let isOutside = !e.target.closest('.modal-inner');
-    if (isOutside) newTodoModal.style.display = 'none';
+    if (isOutside) closeModal('newtodomodal');
+});
+
+window.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape') closeModal('newtodomodal');
+});
+
+const btnNewTodoModalCancel = document.getElementById('newModalCancel');
+btnNewTodoModalCancel.addEventListener('click', () => {
+    closeModal('newtodomodal');
+});
+
+const btnNewTodoModalCreate = document.getElementById('newModalCreate');
+btnNewTodoModalCreate.addEventListener('click', () => {
+
+});
+
+const checkBox = document.querySelector('.checkbox');
+checkBox.addEventListener('click', (e) => {
+    const check = checkBox.querySelector('svg');
+    check.classList.toggle('invisible');
+    e.stopPropagation();
 });
