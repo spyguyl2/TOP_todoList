@@ -38,14 +38,17 @@
                         <h1>New Todo</h1>
                         <hr>
                         <label for="title">Title</label>
-                        <input type="text" name="title">
+                        <input type="text" class="modaltitleinput" name="title">
                         <label for="description">Description</label>
                         <input type="text" name="description">
-                        <label for="Priority">Priority</label>
+                        <label for="date">Date</label>
+                        <input type="date">
+                        <hr>
+                        <label for="Priority">Priority</label> 
                         <div class="prioritybuttons">
-                            <button type="button" id="prioritylow">Low</button>
-                            <button type="button" id="prioritymed">Med</button>
-                            <button type="button" id="priorityhigh">High</button>
+                            <button class="low" type="button" id="prioritylow">Low</button>
+                            <button class="med selected" type="button" id="prioritymed">Med</button>
+                            <button class="high" type="button" id="priorityhigh">High</button>
                         </div>
                         <div class="newtodomodalbuttonwrapper">
                             <button type="button" id="newModalCancel">Cancel</button>
