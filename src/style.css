@@ -4,15 +4,15 @@
 	--main: calc(100vh - calc(var(--projectPanel) + var(--toolBar)));
     /*High Priority*/
     --priorityHighBgColor: rgb(249, 103, 12);
-    --priorityHighTextColor: rgb(1,1,1);
-    --priorityHighCheckboxColor: rgb(201, 192, 192);
+    --priorityHighTextColor: rgb(255, 255, 255);
+    --priorityHighCheckboxColor: rgb(241, 148, 18);
     /*Medium Priority*/
     --priorityMedBgColor: rgb(93, 19, 122);
-    --priorityMedTextColor: rgb(1,1,1);
+    --priorityMedTextColor: rgb(255, 255, 255);
     --priorityMedCheckboxColor: rgb(1,1,1);
     /*Low Priority*/
-    --priorityLowBgColor: rgb(93, 86, 31);
-    --priorityLowTextColor: rgb(1,1,1);
+    --priorityLowBgColor: rgb(89, 167, 110);
+    --priorityLowTextColor: rgb(255, 255, 255);
     --priorityLowCheckboxColor: rgb(1,1,1);
 }
 
@@ -87,7 +87,7 @@
     height: var(--projectPanel);
 }
 
-.project, .project p {
+.project, .project p, .todo p {
     color: white;
 }
 
@@ -149,12 +149,8 @@
 
 .checkbox {
     background-color: gray;
-    border: 1px solid slateblue;
+    border: 1px solid white;
     cursor: pointer;
-}
-
-p {
-    color: orange;
 }
 
 .invisible {
@@ -163,14 +159,31 @@ p {
 
 .low {
     background-color: var(--priorityLowBgColor);
+    color: var(--priorityLowTextColor);
+    border: 1px solid var(--priorityLowTextColor);
+}
+
+.low.selected {
+    background-color: var(--priorityLowTextColor);
+    color: var(--priorityLowBgColor);
+    border: 1px solid var(--priorityLowBgColor);
 }
 
 .low .checkbox {
     background-color: var(--priorityLowCheckboxColor);
+    
 }
 
 .med {
     background-color: var(--priorityMedBgColor);
+    color: var(--priorityMedTextColor);
+    border: 1px solid var(--priorityMedTextColor);
+}
+
+.med.selected {
+    background-color: var(--priorityMedTextColor);
+    color: var(--priorityMedBgColor);
+    border: 1px solid var(--priorityMedBgColor);
 }
 
 .med .checkbox {
@@ -179,6 +192,14 @@ p {
 
 .high {
     background-color: var(--priorityHighBgColor);
+    color: var(--priorityHighTextColor);
+    border: 1px solid var(--priorityHighTextColor);
+}
+
+.high.selected {
+    background-color: var(--priorityHighTextColor);
+    color: var(--priorityHighBgColor);
+    border: 1px solid var(--priorityHighBgColor);
 }
 
 .high .checkbox {
@@ -209,10 +230,30 @@ p {
     background-color: rgb(76, 71, 71);
     padding: 10px;
     width: 12rem;
-    height: 10rem;
+    height: fit-content;
     margin-bottom: 20rem;
 }
 
 .newtodomodalbuttonwrapper {
     display: flex;
+}
+
+.newtodomodalbuttonwrapper>button {
+    width: 100%;
+}
+
+.prioritybuttons {
+    display: flex;
+}
+
+.prioritybuttons>button {
+    width: 100%;
+}
+
+#newtodoform>label, #newtodoform button {
+    margin: 5px 0;
+}
+
+hr {
+    width: 100%;
 }
