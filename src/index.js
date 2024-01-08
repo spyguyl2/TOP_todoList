@@ -39,6 +39,9 @@ const newTodoModal = document.getElementById('newtodomodal');
 const btnAddTodo = document.getElementById('btnAddTodo');
 btnAddTodo.addEventListener('click', () => {
     newTodoModal.style.display = 'flex';
+    //just confirming this works for use in domkit later
+    const todoFormTitleInput = document.querySelector('.modaltitleinput');
+    todoFormTitleInput.focus();
 });
 
 newTodoModal.addEventListener('click', (e) => {
