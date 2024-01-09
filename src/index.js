@@ -69,3 +69,9 @@ checkBox.addEventListener('click', (e) => {
     check.classList.toggle('invisible');
     e.stopPropagation();
 });
+
+const createH1 = (textContent) => {
+    const h1 = document.createElement('h1');
+    h1.textContent = textContent;
+    return h1;
+}
