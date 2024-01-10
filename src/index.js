@@ -2,7 +2,7 @@ import './style.css';
 import './meyerReset.css';
 import { createIcons, FolderPlus, Check } from 'lucide';
 import { createProject, createSubTask, createTodo } from './projectFunctions';
-import { addProject } from './domkit';
+import { addProject, displayNewTodoModal } from './domkit';
 import { startOfToday } from 'date-fns';
 
 createIcons({
@@ -11,7 +11,7 @@ createIcons({
         Check
     }
 });
-
+/*
 const closeModal = (modalId) => {
     const modal = document.getElementById(modalId);
     modal.style.display = 'none';
@@ -75,3 +75,5 @@ const createH1 = (textContent) => {
     h1.textContent = textContent;
     return h1;
 }
+*/
+document.getElementById('test').addEventListener('click', displayNewTodoModal);
