@@ -206,16 +206,8 @@
     background-color: var(--priorityHighCheckboxColor);
 }
 
-#newtodoform {
-    display: flex;
-    flex-direction: column;
-}
-
-#newtodomodal {
-    display: none;
-}
-
 .modal-outer {
+    display: flex;
     justify-content: center;
     align-items: center;
     position: fixed;
@@ -228,10 +220,12 @@
 
 .modal-inner {
     background-color: rgb(76, 71, 71);
+    display: flex;
     padding: 10px;
     width: 12rem;
     height: fit-content;
     margin-bottom: 20rem;
+    z-index: 2;
 }
 
 .newtodomodalbuttonwrapper {
@@ -250,7 +244,7 @@
     width: 100%;
 }
 
-#newtodoform>label, #newtodoform button {
+form>label, form button {
     margin: 5px 0;
 }
 
