@@ -1,4 +1,4 @@
-import { createProject } from "./projectFunctions";
+import { createTodo } from "./projectFunctions";
 
 const todoPanel = document.querySelector('.todoPanel');
 
@@ -113,6 +113,16 @@ export const displayNewTodoModal = () => {
     btnHigh.classList.add('high');
     btnHigh.textContent = 'High';
 
+    let buttons = [btnLow, btnMed, btnHigh];
+    buttons.forEach((button) => {
+        button.addEventListener('click', () => {
+            buttons.forEach((btn) => {
+                btn.classList.remove('selected');
+            });
+            button.classList.add('selected');
+        });
+    })
+
     priorityBtns.childNodes.forEach((btn) => btn.setAttribute('type', 'button'));
 
     const btnWrapper = document.createElement('div');
@@ -129,7 +139,21 @@ export const displayNewTodoModal = () => {
     btnWrapper.appendChild(btnCreate);
     btnCreate.setAttribute('type', 'button');
     btnCreate.textContent = 'Create Todo';
-    btnCreate.addEventListener('click', createProject)
+    btnCreate.addEventListener('click', () => {
+        let selectedButton = btnMed;
+        buttons.forEach((button) => {
+            if (button.classList.contains('selected')) selectedButton = button;
+        });
+
+        createTodo(
+            inputTitle.value,
+            inputDescription.value,
+            inputDate.value,
+            selectedButton,
+            false
+        );
+    });
+    btnCreate.addEventListener('click', () => { outer.remove(); });
 
 }
 
