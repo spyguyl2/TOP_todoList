@@ -11,7 +11,7 @@ createIcons({
         Check
     }
 });
-/*
+
 const closeModal = (modalId) => {
     const modal = document.getElementById(modalId);
     modal.style.display = 'none';
@@ -23,10 +23,6 @@ btnAddProject.addEventListener('click', () => {
     btnAddProject.removeChild(btnAddProject.querySelector('span'));
 }, {once: true});
 
-btnAddProject.addEventListener('click', () => {
-
-});
-
 
 const todos = document.getElementsByClassName('todo');
 Array.from(todos).forEach((el) => {
@@ -34,33 +30,6 @@ Array.from(todos).forEach((el) => {
         const panel = el.querySelector('.tododropdown');
         panel.classList.toggle('show');
     });
-});
-const newTodoModal = document.getElementById('newtodomodal');
-const btnAddTodo = document.getElementById('btnAddTodo');
-btnAddTodo.addEventListener('click', () => {
-    newTodoModal.style.display = 'flex';
-    //just confirming this works for use in domkit later
-    const todoFormTitleInput = document.querySelector('.modaltitleinput');
-    todoFormTitleInput.focus();
-});
-
-newTodoModal.addEventListener('click', (e) => {
-    let isOutside = !e.target.closest('.modal-inner');
-    if (isOutside) closeModal('newtodomodal');
-});
-
-window.addEventListener('keydown', (e) => {
-    if (e.key === 'Escape') closeModal('newtodomodal');
-});
-
-const btnNewTodoModalCancel = document.getElementById('newModalCancel');
-btnNewTodoModalCancel.addEventListener('click', () => {
-    closeModal('newtodomodal');
-});
-
-const btnNewTodoModalCreate = document.getElementById('newModalCreate');
-btnNewTodoModalCreate.addEventListener('click', () => {
-
 });
 
 const checkBox = document.querySelector('.checkbox');
@@ -75,5 +44,4 @@ const createH1 = (textContent) => {
     h1.textContent = textContent;
     return h1;
 }
-*/
 document.getElementById('test').addEventListener('click', displayNewTodoModal);
